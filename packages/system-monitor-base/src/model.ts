@@ -166,7 +166,7 @@ export namespace ResourceUsage {
         ? Math.min(this._currentMemory / this.memoryLimit, 1)
         : null;
 
-      const cpuPercent = value.cpu_percent;
+      const cpuPercent = value.cpu_percent / value.cpu_count;
       this._cpuAvailable = cpuPercent !== undefined;
       this._currentCpuPercent = this._cpuAvailable
         ? Math.min(1, cpuPercent / 100)
